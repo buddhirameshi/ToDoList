@@ -1,0 +1,90 @@
+@ToDoListAPI_HostAddress = https://localhost:7219
+
+###
+
+POST {{ToDoListAPI_HostAddress}}/api/todoitem
+Content-Type: application/json
+
+{
+    "name": "walk dog",
+  "isComplete": true
+}
+
+###
+
+GET {{ToDoListAPI_HostAddress}}/api/todoitem
+
+###
+
+@id=1
+GET {{ToDoListAPI_HostAddress}}/api/todoitem/{{id}}
+
+###
+
+GET {{ToDoListAPI_HostAddress}}/api/ToDoList/{{id}}
+
+###
+
+POST {{ToDoListAPI_HostAddress}}/api/ToDoList
+Content-Type: application/json
+
+{
+      "Title": "walk dog",
+  "IsComplete": true
+}
+
+###
+
+POST {{ToDoListAPI_HostAddress}}/api/ToDoList
+Content-Type: application/json
+
+{
+  
+      "name": "sing",
+  "isComplete": true
+
+}
+
+###
+@id=2
+GET {{ToDoListAPI_HostAddress}}/api/ToDoList/{{id}}
+
+###
+
+@id=2
+PUT {{ToDoListAPI_HostAddress}}/api/ToDoList/2
+Content-Type: application/json
+
+{
+    "id":2,
+        "name": "sing",
+  "isComplete": false
+}
+
+###
+
+DELETE {{ToDoListAPI_HostAddress}}/api/ToDoList/2
+
+###
+
+GET {{ToDoListAPI_HostAddress}}/api/ToDoList/{{id}}
+
+###
+
+GET {{ToDoListAPI_HostAddress}}/api/ToDoList
+
+###
+
+GET {{ToDoListAPI_HostAddress}}/api/ToDoList
+
+###
+
+POST {{ToDoListAPI_HostAddress}}/api/ToDoList
+Content-Type: application/json
+
+{
+  "name": "sing",
+  "isComplete": false
+}
+
+###
