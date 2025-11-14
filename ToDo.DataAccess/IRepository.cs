@@ -1,5 +1,5 @@
 ﻿
-namespace ToDoListAPI.Repositories
+namespace ToDoList.DataAccess
 {
     public interface IRepository<T>
     {

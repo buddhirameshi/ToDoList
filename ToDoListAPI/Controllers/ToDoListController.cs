@@ -6,9 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ToDoListApi.Models;
-using ToDoListAPI.Data;
-using ToDoListAPI.Services;
+using ToDoList.Models;
+using ToDoList.Services;
 
 namespace ToDoListAPI.Controllers
 {

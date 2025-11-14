@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ToDoListApi.Models;
-using ToDoListAPI.Data;
-using ToDoListAPI.Middleware;
-using ToDoListAPI.Repositories;
-using ToDoListAPI.Services;
+using ToDoList.Models;
+using ToDoListApi.Middleware;
+using ToDoList.DataAccess;
+using ToDoList.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);

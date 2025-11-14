@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ToDoListApi.Models;
-using ToDoListAPI.Data;
+using ToDoList.Models;
 
-namespace ToDoListAPI.Repositories
+
+namespace ToDoList.DataAccess
 {
 
 

@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text.Json;
 
-namespace ToDoListApi.Middleware
+namespace ToDoList.Middleware
 {
     public class GlobalExceptionHandlerMiddleware
     {

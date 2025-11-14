@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Moq;
 using System.Text.Json;
-using ToDoListApi.Models;
-using ToDoListAPI.Middleware;
-using ToDoListAPI.Repositories;
-using ToDoListAPI.Services;
+using ToDoList.Models;
+using ToDoListApi.Middleware;
+using ToDoList.DataAccess;
+using ToDoList.Services;
 
 namespace ToDoApi.Tests.Middleware
 {

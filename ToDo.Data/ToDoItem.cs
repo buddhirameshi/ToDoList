@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ToDoListApi.Models
+namespace ToDoList.Models
 {
 
     /// <summary>

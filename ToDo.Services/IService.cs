@@ -1,6 +1,6 @@
 ﻿
 
-namespace ToDoListAPI.Services
+namespace ToDoList.Services
 {
     public interface IService<T>
     {

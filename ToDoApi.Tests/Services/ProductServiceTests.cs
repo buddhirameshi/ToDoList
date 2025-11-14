@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoListApi.Models;
-using ToDoListAPI.Repositories;
-using ToDoListAPI.Services;
+using ToDoList.Models;
+using ToDoList.DataAccess;
+using ToDoList.Services;
 using System.Collections;
 
 namespace ToDoApi.Tests.Services

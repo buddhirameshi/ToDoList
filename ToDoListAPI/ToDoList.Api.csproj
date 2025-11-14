@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\DAO\" />
+    <ProjectReference Include="..\ToDo.DataAccess\ToDoList.DataAccess.csproj" />
+    <ProjectReference Include="..\ToDo.Services\ToDoList.Services.csproj" />
   </ItemGroup>
 
 </Project>

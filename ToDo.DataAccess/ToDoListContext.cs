@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ToDoListApi.Models;
+using ToDoList.Models;
 
-namespace ToDoListAPI.Data
+namespace ToDoList.DataAccess
 {
     public class ToDoListContext: DbContext
     {

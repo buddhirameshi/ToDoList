@@ -1,11 +1,9 @@
-﻿
-using Microsoft.AspNetCore.Http.HttpResults;
-using System.Runtime.CompilerServices;
-using ToDoListApi.Models;
-using ToDoListAPI.Repositories;
+﻿using ToDoList.Models;
+using ToDoList.DataAccess;
+using Microsoft.Extensions.Logging;
 
 
-namespace ToDoListAPI.Services
+namespace ToDoList.Services
 {
     public class ToDoItemService : IService<ToDoItem>
     {
