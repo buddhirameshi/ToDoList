@@ -88,3 +88,13 @@ Content-Type: application/json
 }
 
 ###
+
+POST {{ToDoListAPI_HostAddress}}/api/ToDoList
+Content-Type: application/json
+
+{
+  "title": "sing",
+  "isComplete": false
+}
+
+###

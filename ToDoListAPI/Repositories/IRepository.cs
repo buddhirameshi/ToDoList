@@ -1,9 +1,7 @@
 ﻿
-using ToDoListAPI.Models.DAO;
-
 namespace ToDoListAPI.Repositories
 {
-    public interface IBaseRepository<T>
+    public interface IRepository<T>
     {
         Task<IEnumerable<T>> GetAllItemsAsync();
         Task<T?> GetItemByIdAsync(int id);

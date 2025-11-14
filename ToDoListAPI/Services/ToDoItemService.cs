@@ -1,43 +1,68 @@
 ﻿
-using ToDoListAPI.Models.DAO;
-using ToDoListAPI.Models.DTO;
+using Microsoft.AspNetCore.Http.HttpResults;
+using System.Runtime.CompilerServices;
+using ToDoListApi.Models;
 using ToDoListAPI.Repositories;
 
 
 namespace ToDoListAPI.Services
 {
-    public class ToDoItemService : IBaseService<ToDoItem>
+    public class ToDoItemService : IService<ToDoItem>
     {
 
-        private readonly  IBaseRepository<ToDoItem> _repository;
+        private readonly IRepository<ToDoItem> _repository;
+        private readonly ILogger<ToDoItemService> _logger;
 
-        public ToDoItemService(IBaseRepository<ToDoItem> repository)
+        public ToDoItemService(IRepository<ToDoItem> repository, ILogger<ToDoItemService> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
-        public  Task<ToDoItem> AddItemAsync(ToDoItem dto)
+        public  async Task<ToDoItem> AddItemAsync(ToDoItem dto)
         {
-            return  _repository.AddItemAsync(dto);
-            
+            var createdItem = await _repository.AddItemAsync(dto);
+            _logger.LogInformation("New ToDoItem is created with the ID : {ToDoItemId}",createdItem.Id);
+            return createdItem;
         }
             
-        public  Task<bool> DeleteItemAsync(int id) => _repository.DeleteItemAsync(id);
+        public  async Task<bool> DeleteItemAsync(int id) {
+            var deleted = await _repository.DeleteItemAsync(id);
+            _logger.LogInformation("Delete ToDoitem {id} {status}",id,deleted?"succeeded":"failed");
+
+            return deleted;
+        }
 
 
 
-        public  Task<IEnumerable<ToDoItem>> GetAllItemsAsync()=>  _repository.GetAllItemsAsync();
-        
+        public  async Task<IEnumerable<ToDoItem>> GetAllItemsAsync()
+        { 
+            _logger.LogInformation("Fetching the entire ToDoList");
+           return  await  _repository.GetAllItemsAsync();
+        }
 
-        public Task<ToDoItem?> GetItemByIdAsync(int id)=> _repository.GetItemByIdAsync(id);
+
+        public async Task<ToDoItem?> GetItemByIdAsync(int id)
+        {
+            _logger.LogInformation("Fetching the ToDoItem {Id}",id);
+            return await _repository.GetItemByIdAsync(id);
+        }
         
 
      
         public async  Task<bool> UpdateItemAsync(ToDoItem item)
         {
             var retrievedItem = await _repository.GetItemByIdAsync(item.Id);
-            if (retrievedItem == null) return false;
-            return await _repository.UpdateItemAsync(item);
+            if (retrievedItem == null)
+            {
+                _logger.LogWarning("Update failed. ToDoitem ID {ToDoItemId} not found", item.Id);
+                return false;
+            }
+
+            var updated= await _repository.UpdateItemAsync(item);
+            _logger.LogInformation("ToDoItem {ToDoItemId} updated", item.Id);
+
+            return updated;
         }
 
 

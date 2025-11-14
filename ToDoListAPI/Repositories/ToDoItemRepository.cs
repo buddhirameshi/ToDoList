@@ -1,10 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ToDoListApi.Models;
 using ToDoListAPI.Data;
-using ToDoListAPI.Models.DAO;
 
 namespace ToDoListAPI.Repositories
 {
-    public class ToDoItemRepository : IBaseRepository<ToDoItem>
+
+
+    /// <summary>
+    /// ToDo Item repository handles the data transactions
+    /// </summary>
+    public class ToDoItemRepository : IRepository<ToDoItem>
     {
 
         private readonly ToDoListContext _context;

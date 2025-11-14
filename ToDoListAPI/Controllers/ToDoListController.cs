@@ -6,8 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ToDoListApi.Models;
 using ToDoListAPI.Data;
-using ToDoListAPI.Models.DAO;
 using ToDoListAPI.Services;
 
 namespace ToDoListAPI.Controllers
@@ -16,9 +16,9 @@ namespace ToDoListAPI.Controllers
     [ApiController]
     public class ToDoListController : ControllerBase
     {
-        private readonly IBaseService<ToDoItem> _service;
+        private readonly IService<ToDoItem> _service;
 
-        public ToDoListController(IBaseService<ToDoItem> service)
+        public ToDoListController(IService<ToDoItem> service)
         {
             _service = service;
         }
