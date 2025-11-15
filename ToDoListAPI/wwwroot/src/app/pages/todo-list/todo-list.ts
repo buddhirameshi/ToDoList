@@ -1,7 +1,9 @@
-import { Component ,inject} from '@angular/core';
+import { Component ,inject,OnInit} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TodoService } from '../../services/todo.service';
 import { ToDoTile } from '../todo-item-tile/todo-item-tile';
 import { ToDoItem } from '../todo-item/todo-item';
+import { ToDoModal } from '../todo-modal/todo-modal'; 
 
 
 
@@ -9,35 +11,50 @@ import { ToDoItem } from '../todo-item/todo-item';
   selector: 'app-todolist',
   imports: [ToDoTile],
   template: `
-     <section>
-      <form>
+     <section class="list-wrap">
+      <form class="list-filter-wrap">
          <input type="string" placeholder="Filter by Title" #filter class="task-search-input" /> 
         <button class="task-search" type="button" (click)="filterResults(filter.value)">Search</button>
       </form>
+      <button type="button" (click)="openModal()" class="task-add" title="Add"><img src="../assets/add.png"/><span> Add New Task</span></button>
     </section>
+
     <section class="results">
        @for(oneItem of filteredList; track $index) {
         <app-todo-tile [todoTile]="oneItem" />
       }
     </section>
+   
+    
   `,
   styleUrls: ['./todo-list.css'],
 })
 
-export class ToDoList {
+export class ToDoList implements OnInit  {
+
  todoItemsList: ToDoItem[] = [];
  filteredList: ToDoItem[] = [];
+ 
+  //todoService: TodoService = inject(TodoService);
 
-  todoService: TodoService = inject(TodoService);
- constructor() {
-    this.todoService
-      .getToDoList()
-      .then((toDoList: ToDoItem[]) => {
-        this.todoItemsList = toDoList;
-        this.filteredList = toDoList;
-      });
+ constructor(private todoService: TodoService,public dialog: MatDialog) {}
+
+    ngOnInit(): void {
+    this.loadItems();
+    }
+
+
+loadItems(): void {
+    this.todoService.getItems().subscribe({
+      next: (data) => {
+        this.todoItemsList = data;
+        this.filteredList = data;
+      },
+      error: (err) => console.error('Error loading items:', err)
+    });
   }
 
+  
   filterResults(text: string) {
     if (!text) {
       this.filteredList = this.todoItemsList;
@@ -46,6 +63,21 @@ export class ToDoList {
     this.filteredList = this.todoItemsList.filter((todoItem) => todoItem?.title.toLowerCase().includes(text.toLowerCase()),
     );
   }
+
+
+    openModal(): void {
+    const dialogRef = this.dialog.open(ToDoModal, {
+      width: '900px', 
+      height:'300px',
+      data: { name: 'Add New Item',id:0,effort:0,description:'',isComplete:false } 
+    })
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    
+    });
+  }
+  
 }
 
 

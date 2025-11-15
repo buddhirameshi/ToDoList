@@ -1,11 +1,12 @@
-// import { HttpClient } from '@angular/common/http';
+ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import { Observable } from 'rxjs';
+ import { Observable } from 'rxjs';
 import { ToDoItem } from '../pages/todo-item/todo-item';
 
 
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // Makes the service available throughout the application
 })
 
 
@@ -13,33 +14,27 @@ export class TodoService {
 
   private apiUrl = 'https://localhost:7219/api/todolist';
 
-  // constructor(private http: HttpClient) {}
+   constructor(private http: HttpClient) {}
 
-  // getTodos(): Observable<TodoItem[]> {
-  //   return this.http.get<TodoItem[]>(this.apiUrl);
-  // }
 
-  // addTodo(todo: TodoItem): Observable<TodoItem> {
-  //   return this.http.post<TodoItem>(this.apiUrl, todo);
-  // }
-
-  // deleteTodo(id: number): Observable<void> {
-  //   return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  // }
-
-async getToDoList(): Promise<ToDoItem[]> {
-    const data = await fetch(this.apiUrl);
-    return (await data.json()) ?? [];
-  }
-  async getToDoItemById(id: number): Promise<ToDoItem | undefined> {
-    const data = await fetch(`${this.apiUrl}?id=${id}`);
-    const taskJson = await data.json();
-    return taskJson[0] ?? {};
+  getItems(): Observable<ToDoItem[]> {
+    return this.http.get<ToDoItem[]>(this.apiUrl);
   }
 
-  addNewToDoItem(id: number, title: string, isComplete: boolean,description:string,effort:number) {
-    // tslint:disable-next-line
-    console.log(id, title, effort);
+  getItemById(id: number): Observable<ToDoItem> {
+    return this.http.get<ToDoItem>(`${this.apiUrl}/${id}`);
+  }
+
+  createItem(item: ToDoItem): Observable<ToDoItem> {
+    return this.http.post<ToDoItem>(this.apiUrl, item);
+  }
+
+  updateItem(item: ToDoItem): Observable<ToDoItem> {
+    return this.http.put<ToDoItem>(`${this.apiUrl}/${item.id}`, item);
+  }
+
+  deleteItem(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
 }

@@ -56,12 +56,12 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-DQIUKFFJ.js";
+} from "./chunk-GZTD4XYZ.js";
 import {
   __async,
   __spreadProps,
   __spreadValues
-} from "./chunk-WDMUDEB6.js";
+} from "./chunk-3OV72XIM.js";
 
 // node_modules/@angular/common/fesm2022/location.mjs
 var _DOM = null;
@@ -3656,21 +3656,6 @@ var CommonModule = class _CommonModule {
   }], null, null);
 })();
 
-// node_modules/@angular/common/fesm2022/xhr.mjs
-function parseCookieValue(cookieStr, name) {
-  name = encodeURIComponent(name);
-  for (const cookie of cookieStr.split(";")) {
-    const eqIndex = cookie.indexOf("=");
-    const [cookieName, cookieValue] = eqIndex == -1 ? [cookie, ""] : [cookie.slice(0, eqIndex), cookie.slice(eqIndex + 1)];
-    if (cookieName.trim() === name) {
-      return decodeURIComponent(cookieValue);
-    }
-  }
-  return null;
-}
-var XhrFactory = class {
-};
-
 // node_modules/@angular/common/fesm2022/platform_navigation.mjs
 var PlatformNavigation = class _PlatformNavigation {
   static ɵfac = function PlatformNavigation_Factory(__ngFactoryType__) {
@@ -3694,6 +3679,9 @@ var PlatformNavigation = class _PlatformNavigation {
 
 // node_modules/@angular/common/fesm2022/common.mjs
 var PLATFORM_BROWSER_ID = "browser";
+function isPlatformBrowser(platformId) {
+  return platformId === PLATFORM_BROWSER_ID;
+}
 var VERSION = new Version("20.3.6");
 var ViewportScroller = class _ViewportScroller {
   // De-sugared tree-shakable injection
@@ -5002,16 +4990,14 @@ export {
   Location,
   HashLocationStrategy,
   CommonModule,
-  parseCookieValue,
-  XhrFactory,
   PLATFORM_BROWSER_ID,
+  isPlatformBrowser,
   ViewportScroller
 };
 /*! Bundled license information:
 
 @angular/common/fesm2022/location.mjs:
 @angular/common/fesm2022/common_module.mjs:
-@angular/common/fesm2022/xhr.mjs:
 @angular/common/fesm2022/platform_navigation.mjs:
 @angular/common/fesm2022/common.mjs:
   (**
@@ -5020,4 +5006,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-4HSLGWHH.js.map
+//# sourceMappingURL=chunk-OFAZA2LY.js.map

@@ -41,8 +41,8 @@ namespace ToDoList.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ToDoItem>> PostToDoItem(ToDoItem toDoItem)
         {
-            var product = await _service.AddItemAsync(toDoItem);
-            return CreatedAtAction(nameof(GetToDoItem), new { id = product.Id }, product);
+            var todoItem = await _service.AddItemAsync(toDoItem);
+            return CreatedAtAction(nameof(GetToDoItem), new { id = todoItem.Id }, todoItem);
         }
 
 

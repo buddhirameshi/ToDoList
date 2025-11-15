@@ -1,18 +1,51 @@
 .task-search
 {
-       background-color: #0078d4;
+    background-color: #0078d4;
     margin: 20px;
     color: white;
     padding: 5px;
     border-radius: 5px;
     border-color: transparent;
+    width:110px;
 }
 
 .task-search-input
 {
     margin-left: 20px;
     padding: 7px;
+
     border: solid 0.5px #bbb;
     border-radius: 5px;
     width: 300px;
+}
+
+.task-add img{
+    width: 20px;
+}
+
+.list-wrap
+{
+    overflow: hidden;
+}
+
+.list-filter-wrap
+{
+    float: left;
+}
+
+button.task-add {
+    display: inline-block;
+    padding: 5px;
+    margin-top: 20px;
+    height: 30px;
+    width: 110px;
+    background-color: black;
+    color: white;
+    border:none;
+    border-radius: 5px;
+}
+
+button.task-add span{
+    vertical-align: super;
+    margin-left:5px
 }

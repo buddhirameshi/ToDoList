@@ -1,13 +1,46 @@
 section.tile {
-    display: inline-block;
-    margin: 20px;
-    width: 400px;
+display: inline-block;
+    margin: 10px;
+    width: 20%;
     border: solid 0.5px #ddd;
-    padding: 20px;
+    padding: 15px;
     background-color: #eee;
+    vertical-align: text-top;
 }
 
 h2.tile-heading {
-    font-size: 28px;
+    font-size: 24px;
     color: navy;
+       overflow: hidden;
 }
+
+button.tile-edit-btn {
+    float: right;
+    border: none;
+    /* width: 10px; */
+    display: inline-block;
+}
+
+button.tile-delete-btn
+{
+    float: right;
+    border: none;
+    /* width: 10px; */
+    display: inline-block;
+    margin-left: 10px;
+}
+
+span.task-heading {
+    float: left;
+    width: 80%;
+    word-break: break-all;
+}
+
+.tile-edit-btn img{
+    width: 20px;
+}
+
+.tile-delete-btn img{
+    width: 20px;
+}
+

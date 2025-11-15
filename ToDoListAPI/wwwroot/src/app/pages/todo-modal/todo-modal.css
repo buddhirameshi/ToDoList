@@ -1,0 +1,63 @@
+    
+    .modal-header
+    {
+        background: #213968;
+        padding: 10px;
+        height: 30px;
+        color: white;
+        font-weight: 100 !important;
+    }
+
+    .modal-header h2{
+        float: left;
+        width: 80%;
+        font-weight: 100;
+    }
+
+    .modal-close{
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        border-color: transparent;
+        float: right;
+    }
+
+    .modal-save{
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        border-color: transparent;
+    background: cornflowerblue;
+    color: white;
+    }
+
+  section.modal-form-group  input[type="checkbox" i] {
+    width:30px;
+    display: inline-block;
+    float: right;
+  }
+
+.modal-form-group
+{
+    margin: 10px;
+    display: block;
+    overflow: hidden;
+}
+
+section.modal-form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    float: left;
+    width: 150px;
+}
+
+section.modal-form-group input
+{
+    padding: 5px;
+    border: solid 0.5px #bbb;
+    border-radius: 5px;
+    width: 370px;
+    display: inline-block;
+    max-width: 370px;
+}
