@@ -1,7 +1,18 @@
 .task-search
 {
     background-color: #0078d4;
-    margin: 20px;
+    margin: 20px 0px 20px 10px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: transparent;
+    width:110px;
+}
+
+.task-clear
+{
+    background-color: chocolate;
+    margin: 20px 10px;
     color: white;
     padding: 5px;
     border-radius: 5px;

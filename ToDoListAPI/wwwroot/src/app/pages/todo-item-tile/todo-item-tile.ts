@@ -62,8 +62,6 @@ todoService: TodoService = inject(TodoService);
       //   });
       // }
 
-        
-
 
       openModal(): void {
         const dialogRef = this.dialog.open(ToDoModal, {

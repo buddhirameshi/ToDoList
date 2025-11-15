@@ -1,4 +1,5 @@
-import { Component ,inject,OnInit} from '@angular/core';
+import { Component ,inject,OnInit,input} from '@angular/core';
+import { FormControl,ReactiveFormsModule  } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { TodoService } from '../../services/todo.service';
 import { ToDoTile } from '../todo-item-tile/todo-item-tile';
@@ -9,19 +10,20 @@ import { ToDoModal } from '../todo-modal/todo-modal';
 
 @Component({
   selector: 'app-todolist',
-  imports: [ToDoTile],
+  imports: [ToDoTile,ReactiveFormsModule],
   template: `
      <section class="list-wrap">
       <form class="list-filter-wrap">
-         <input type="string" placeholder="Filter by Title" #filter class="task-search-input" /> 
-        <button class="task-search" type="button" (click)="filterResults(filter.value)">Search</button>
+         <input   type="text" placeholder="Filter by Title" class="task-search-input" [formControl]="filterControl" /> 
+        <button class="task-search" type="button" (click)="filterResults()">Search</button>
+        <button class="task-clear" type="button" (click)="clearResults()">Clear</button>
       </form>
       <button type="button" (click)="openModal()" class="task-add" title="Add"><img src="../assets/add.png"/><span> Add New Task</span></button>
     </section>
 
     <section class="results">
        @for(oneItem of filteredList; track $index) {
-        <app-todo-tile [todoTile]="oneItem" />
+        <app-todo-tile [todoTile]="oneItem" (toDoListCalled)="loadItems()"/>
       }
     </section>
    
@@ -32,10 +34,10 @@ import { ToDoModal } from '../todo-modal/todo-modal';
 
 export class ToDoList implements OnInit  {
 
+  
+ filterControl = new FormControl(''); 
  todoItemsList: ToDoItem[] = [];
  filteredList: ToDoItem[] = [];
- 
-  //todoService: TodoService = inject(TodoService);
 
  constructor(private todoService: TodoService,public dialog: MatDialog) {}
 
@@ -55,13 +57,19 @@ loadItems(): void {
   }
 
   
-  filterResults(text: string) {
-    if (!text) {
+  filterResults() {
+    if (!this.filterControl.value) {
       this.filteredList = this.todoItemsList;
       return;
     }
     this.filteredList = this.todoItemsList.filter((todoItem) => todoItem?.title.toLowerCase().includes(text.toLowerCase()),
     );
+  }
+
+  clearResults(){
+    this.filterControl = new FormControl(''); 
+    this.filteredList = this.todoItemsList;
+    return;
   }
 
 

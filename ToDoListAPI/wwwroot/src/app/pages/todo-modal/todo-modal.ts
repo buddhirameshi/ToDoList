@@ -1,5 +1,5 @@
 
-import { Component, Inject,input } from '@angular/core';
+import { Component, Inject,input , Output, EventEmitter} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { TodoService } from '../../services/todo.service';
@@ -44,6 +44,8 @@ import { ToDoItem } from '../todo-item/todo-item';
   styleUrls: ['./todo-modal.css']
 })
 export class ToDoModal {
+ 
+  @Output() toDoListCalled = new EventEmitter<string>();
 
    updatedItem = input.required<ToDoItem>();
 
@@ -64,7 +66,7 @@ export class ToDoModal {
       
 
       closeModal(): void {
-        this.dialogRef.close('Modal closed'); // Optional: Return data on close
+        this.dialogRef.close('Modal closed'); 
       }
 
       onCheckboxChange(event: any):void {     
@@ -82,12 +84,7 @@ export class ToDoModal {
         }
       }
 
-      // onTextChange(event: Event): void {
-      //   const target = event.target as HTMLTextAreaElement;
-      //   this.toDoModal.description = target.value;
-      // }
-
-        // updating an item
+ 
       updateItem(): void {
       const updatedItem: ToDoItem = { 
           id: this.toDoModal.id,
@@ -98,14 +95,18 @@ export class ToDoModal {
         }; 
 
         this.todoService.updateItem(updatedItem).subscribe({
-          next: (item) => {console.log('Item Updated:', item);this.closeModal(); 
+          next: (item) => {console.log('Item Updated:', item);this.closeModal();this.notifyParent(); 
 
           },
           error: (err) => {console.error('Error Updating item:', err);this.closeModal()}
         });
       }
 
-        // creating an item
+          notifyParent() {
+        this.toDoListCalled.emit('Data from child'); // Emit data to the parent
+      }
+
+        
     createItem(): void {
       const newItem: ToDoItem = { 
           id: this.toDoModal.id,
@@ -116,7 +117,7 @@ export class ToDoModal {
         }; 
 
         this.todoService.createItem(newItem).subscribe({
-          next: (item) => {console.log('Item Created:', item);this.closeModal(); 
+          next: (item) => {console.log('Item Created:', item);this.closeModal();this.notifyParent(); 
 
           },
           error: (err) => {console.error('Error Creating item:', err);this.closeModal()}
