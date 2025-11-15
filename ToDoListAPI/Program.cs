@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ToDoList.Models;
-using ToDoList.DataAccess;
-using ToDoList.Services;
+using System;
 using ToDoList.Api.Middleware;
+using ToDoList.DataAccess;
+using ToDoList.Models;
+using ToDoList.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +20,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ToDoListContext>(option => option.UseInMemoryDatabase("TodoListDB"));
+builder.Services.AddDbContext<ToDoListContext>(options => {
+    options.UseInMemoryDatabase("TodoListDB");
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+});
 
 // Register repository and service
 builder.Services.AddScoped<IRepository<ToDoItem>, ToDoItemRepository>();
