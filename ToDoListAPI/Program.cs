@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Models;
-using ToDoListApi.Middleware;
 using ToDoList.DataAccess;
 using ToDoList.Services;
+using ToDoList.Api.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,9 +25,20 @@ builder.Services.AddDbContext<ToDoListContext>(option => option.UseInMemoryDatab
 builder.Services.AddScoped<IRepository<ToDoItem>, ToDoItemRepository>();
 builder.Services.AddScoped<IService<ToDoItem>, ToDoItemService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy => policy
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
+
 
 
 var app = builder.Build();
+
+app.UseCors("AllowAngular");
 
 // Global Exception Handling Middleware
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();

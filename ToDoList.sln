@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Api", "ToDoListAPI\ToDoList.Api.csproj", "{C2ED5283-9BFC-48F4-B372-DB61B020F2C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoListAPI\ToDoList.csproj", "{C2ED5283-9BFC-48F4-B372-DB61B020F2C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Api.Tests", "ToDoApi.Tests\ToDoList.Api.Tests.csproj", "{BC7E24F9-C9D0-4DFF-9BF9-67994B7E8154}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Models", "ToDo.Data\ToDoList.Models.csproj", "{C7137AD9-EA8E-4D1F-A68B-DEBFF28D3FDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Services", "ToDo.Services\ToDoList.Services.csproj", "{7EEAD5E1-C0FD-4456-9F38-9FFB9AD676C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList.Web", "ToDoList.Web", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

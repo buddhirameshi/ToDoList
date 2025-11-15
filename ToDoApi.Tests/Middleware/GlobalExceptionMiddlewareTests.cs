@@ -4,9 +4,9 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using System.Text.Json;
 using ToDoList.Models;
-using ToDoListApi.Middleware;
 using ToDoList.DataAccess;
 using ToDoList.Services;
+using ToDoList.Api.Middleware;
 
 namespace ToDoApi.Tests.Middleware
 {

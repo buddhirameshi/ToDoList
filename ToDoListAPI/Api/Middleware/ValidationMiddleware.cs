@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ToDoListApi.Middleware
+namespace ToDoList.Api.Middleware
 {
     public class ValidationMiddleware
     {

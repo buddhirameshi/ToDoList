@@ -1,4 +1,4 @@
-﻿namespace ToDoListApi.DTO
+﻿namespace ToDoList.Api.DTO
 {
 
     /// <summary>

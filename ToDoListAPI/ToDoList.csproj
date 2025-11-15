@@ -23,4 +23,8 @@
     <ProjectReference Include="..\ToDo.Services\ToDoList.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="App\" />
+  </ItemGroup>
+
 </Project>

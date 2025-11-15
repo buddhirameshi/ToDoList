@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using ToDoList.Models;
 using ToDoList.Services;
 
-namespace ToDoListAPI.Controllers
+namespace ToDoList.Api.Controllers
 {
     [Route("api/ToDoList")]
     [ApiController]

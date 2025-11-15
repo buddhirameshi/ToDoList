@@ -1,0 +1,13 @@
+section.tile {
+    display: inline-block;
+    margin: 20px;
+    width: 400px;
+    border: solid 0.5px #ddd;
+    padding: 20px;
+    background-color: #eee;
+}
+
+h2.tile-heading {
+    font-size: 28px;
+    color: navy;
+}

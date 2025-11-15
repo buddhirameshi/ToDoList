@@ -15,9 +15,23 @@ namespace ToDoList.Models
 
         public bool IsComplete { get; set; }
 
+       
+
 
         [Range(0.00, 2080)]
         public decimal Effort { get; set; }
 
+        public string Description { get; set; } = null!;
+
+
+        //public enum Status
+        //{
+        //    Complete,
+        //    InProgress,
+        //    Planning,
+        //    OnHold,
+        //    Deferred,
+        //    Cancelled
+        //}
     }
 }
