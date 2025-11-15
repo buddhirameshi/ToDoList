@@ -1,7 +1,7 @@
 // import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import { Observable } from 'rxjs';
-import { ToDoItem } from '../pages/todo-list/todo-item';
+import { ToDoItem } from '../pages/todo-item/todo-item';
 
 
 @Injectable({

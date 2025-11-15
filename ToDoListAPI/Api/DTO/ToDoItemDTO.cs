@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Api.DTO
+﻿namespace ToDoList.Api.Dto
 {
 
     /// <summary>
@@ -7,7 +7,7 @@
     /// If there are user roles such as "Administrator" and "User", then DTO class can be exposed to "User" roles while ToDoItem class is enabled for "Administrator" roles.
     /// Currently this class is not in use as  authentication or authorization features are not implemenetd 
     /// </summary>
-    public class ToDoItemDTO
+    public class ToDoItemDto
     {
         public int Id { get; set; }
         public string? Title { get; set; }

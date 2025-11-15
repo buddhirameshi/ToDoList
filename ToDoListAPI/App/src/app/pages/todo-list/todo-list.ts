@@ -1,7 +1,7 @@
 import { Component ,inject} from '@angular/core';
 import { TodoService } from '../../services/todo.service';
-import { ToDoTile } from './todo-item-tile';
-import { ToDoItem } from '../todo-list/todo-item';
+import { ToDoTile } from '../todo-item-tile/todo-item-tile';
+import { ToDoItem } from '../todo-item/todo-item';
 
 
 

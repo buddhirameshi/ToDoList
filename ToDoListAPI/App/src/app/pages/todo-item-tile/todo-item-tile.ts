@@ -1,6 +1,6 @@
 import { Component,input } from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {ToDoItem} from '../todo-list/todo-item';
+import {ToDoItem} from '../todo-item/todo-item';
 
 
 @Component({
