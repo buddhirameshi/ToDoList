@@ -4,25 +4,18 @@
 Ensure you have the following installed on your development machine:
 
 ### Required
-- **[.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)** (Latest version)
-- **[Node.js](https://nodejs.org/)** (v18.x or later)
+- **[.NET 9+ SDK](https://dotnet.microsoft.com/download/dotnet/9.0)** (Latest version)
+- **[Node.js](https://nodejs.org/)** (v20.1.9.0 or later)
 - **[Angular CLI](https://angular.io/cli)**: `npm install -g @angular/cli`
 
-### Recommended
-- **[Visual Studio 2022](https://visualstudio.microsoft.com/)** (Community/Professional/Enterprise)
-- **[VS Code](https://code.visualstudio.com/)** with C# extension
-- **[Git](https://git-scm.com/)**
-
-
-### 1. Clone the Repository
-
+### 1.  Clone the Repository
+Open "Windows PowerShell" or "Git Bash" and execute following commands on the shell.
 ```bash
 git clone https://github.com/buddhirameshi/ToDoList.git
-cd ToDoList
+
 ```
 ### 2. Frontend Setup (Angular)
 
-Open a **new terminal window/tab** and run:
 ```bash
 # Navigate to the Angular app directory
 cd ToDoListAPI/wwwroot
@@ -30,30 +23,30 @@ cd ToDoListAPI/wwwroot
 # Install Node.js dependencies
 npm install
 
+#Build the angular app
+npm run build
+
 ```
 
 ### 3. Backend Setup (.NET API)
 ```bash
-# Navigate to the main project directory
-cd ToDoListAPI
+# Navigate back to the API project directory from wwwroot directory. The project path is "/ToDoListAPI"
+cd..
 
 # Restore NuGet packages
 dotnet restore
-
-# Build the solution
-dotnet build
 
 # Run the API (starts on HTTPS)
 dotnet run
 ```
 
-**Backend will be available at:** `https://localhost:5220` or `http://localhost:5000`
+**Backend will be available at:** `https://localhost:5220` 
 
 ### 4. Access the Application
 
 - **Web Application:** http://localhost:5220
-- **API Documentation (Swagger):** https://localhost:5220/swagger
-- **API Base URL:** https://localhost:5220/api
+- **API Documentation (Swagger):** http://localhost:5220/swagger
+- **API Base URL:** http://localhost:5220/api/ToDoList
 
 
 ## 📄 License
@@ -70,4 +63,4 @@ If you encounter any issues or have questions:
 
 ---
 
-*Built with ❤️ using .NET 9 and Angular*
+*Built with ❤️ using .NET 9 and Angular 20
