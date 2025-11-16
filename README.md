@@ -43,7 +43,7 @@ dotnet run
 
 - **Web Application:** http://localhost:5220
 - **API Documentation (Swagger):** http://localhost:5220/swagger
-- **API Base URL:**  http://localhost:5220/swagger/api/todolist
+- **API Base URL:** http://localhost:5220/api/ToDoList
 
 
 ## 📄 License
