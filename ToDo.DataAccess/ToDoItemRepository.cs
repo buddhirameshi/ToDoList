@@ -43,7 +43,7 @@ namespace ToDoList.DataAccess
 
         public async Task<IEnumerable<ToDoItem>> GetAllItemsAsync()
         {
-           return await _context.ToDoItems.ToListAsync();           
+           return await _context.ToDoItems.OrderByDescending(y=>y.Id).OrderBy(x => x.IsComplete).ToListAsync();           
         }
 
 

@@ -1,0 +1,30 @@
+ <section>
+       <form [formGroup]="todoForm"  class="modal-form">
+      <header class="modal-header">
+          <h2> {{toDoModal.name}}</h2>
+           <button  (click)="closeModal()" class="modal-close" type="button">Close</button>
+           <button type="submit" class="modal-save" (click)="submitChanges()">Save</button>
+      </header>
+      <body class="modal-body">
+       
+            <section class="modal-form-group">
+                <label for="title">Title</label>
+                <input id="title" type="text" formControlName="title" [value]="toDoModal.name" maxlength="200"/>
+            </section>
+            <section class="modal-form-group">
+                <label for="description">Description</label>
+                <textarea  id="description" type="text" formControlName="description" [value]="toDoModal.description" maxlength="400" rows="5" cols="30"></textarea>
+            </section>
+            <section class="modal-form-group">
+                <label for="effort">Effort</label>
+                <input id="effort" type="number" formControlName="effort"  [value]="toDoModal.effort" />
+            </section>
+            <section class="modal-form-group">
+                <label for="isComplete">Is Complete?</label>
+                <input id="isComplete" type="checkbox" formControlName="isComplete" [checked]="toDoModal.isComplete" (change)="onCheckboxChange($event)" />
+            </section>
+         
+       
+      </body>
+       </form>
+</section>

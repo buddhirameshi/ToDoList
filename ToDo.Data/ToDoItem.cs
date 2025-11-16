@@ -10,7 +10,7 @@ namespace ToDoList.Models
     {
         public int Id { get; set; }
 
-        [Required,MaxLength(500)]
+        [Required,MaxLength(200)]
         public string? Title { get; set; }
 
         public bool IsComplete { get; set; }
@@ -21,6 +21,7 @@ namespace ToDoList.Models
         [Range(0.00, 2080)]
         public decimal Effort { get; set; }
 
+        [MaxLength(400)]
         public string Description { get; set; } = null!;
 
 

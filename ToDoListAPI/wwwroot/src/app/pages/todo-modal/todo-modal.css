@@ -32,9 +32,12 @@
     }
 
   section.modal-form-group  input[type="checkbox" i] {
-    width:30px;
+    /* width:30px;
     display: inline-block;
-    float: right;
+    float: right; */
+    width: 20px;
+    display: inline-block;
+    float: left;
   }
 
 .modal-form-group
@@ -60,4 +63,20 @@ section.modal-form-group input
     width: 370px;
     display: inline-block;
     max-width: 370px;
+}
+
+section.modal-form-group textarea
+{
+    padding: 5px;
+    border: solid 0.5px #bbb;
+    border-radius: 5px;
+    width: 370px;
+    display: inline-block;
+    max-width: 370px;
+    resize: none;
+}
+
+.modal-body
+{
+    background-color: white;
 }

@@ -1,17 +1,18 @@
 section.tile {
-display: inline-block;
+display: block;
     margin: 10px;
-    width: 21.4%;
+    /* width: 21.4%; */
     border: solid 0.5px #ddd;
     padding: 15px;
-    background-color: #eee;
-    vertical-align: text-top;
+    background-color: #fbf7c6;
+    /* vertical-align: text-top; */
 }
 
 h2.tile-heading {
-    font-size: 24px;
-    color: navy;
-       overflow: hidden;
+    color: #213968;
+    font-weight: 700;
+    font-size: 22px;
+    overflow: hidden;
 }
 
 button.tile-edit-btn {
@@ -19,6 +20,7 @@ button.tile-edit-btn {
     border: none;
     /* width: 10px; */
     display: inline-block;
+     background: transparent;
 }
 
 button.tile-delete-btn
@@ -28,12 +30,15 @@ button.tile-delete-btn
     /* width: 10px; */
     display: inline-block;
     margin-left: 10px;
+    width: 50px;
+    background: transparent;
 }
 
 span.task-heading {
     float: left;
     width: 80%;
     word-break: break-all;
+    font-family: sans-serif;
 }
 
 .tile-edit-btn img{
@@ -44,3 +49,45 @@ span.task-heading {
     width: 20px;
 }
 
+.tile-button-wrap
+{
+    float: right;
+}
+
+.tile-complete-chck
+{
+    float: left;
+    margin: 8px;
+}
+
+.to-do-content
+{
+    overflow: hidden;
+    padding: 0px 30px;
+}
+
+ul.to-do-list
+{
+    list-style-type: none!important;
+    margin: 20px 0;
+}
+
+ul.to-do-list li
+{
+    margin: 10px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+span.list-item-label {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+span.list-item-value {
+    font-size: 13px;
+}
+
+section.tile.complete{
+    background-color: lightcyan!important;
+}

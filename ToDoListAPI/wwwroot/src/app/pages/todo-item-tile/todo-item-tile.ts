@@ -1,35 +1,21 @@
-import { Component,input,inject } from '@angular/core';
-// import {RouterLink, RouterOutlet} from '@angular/router';
+import { Component,input,inject ,Output, EventEmitter} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import * as bootbox from 'bootbox';
 import { ToDoModal } from '../todo-modal/todo-modal'; 
 import {ToDoItem} from '../todo-item/todo-item';
-import { TodoService } from '../../services/todo.service'
 
 
 @Component({
   selector: 'app-todo-tile',
   imports: [],
-  template: `
-<section class="tile">
-      <h2 class="tile-heading">
-        <span class="task-heading">{{ todoTile().id }} . {{ todoTile().title }}</span>
-        
-        <button type="button" (click)="deleteItem(todoTile().id)" class="tile-delete-btn" title="Delete"><img src="../assets/delete.png"/></button>
-        <button type="button" (click)="openModal()" class="tile-edit-btn" title="Edit"><img src="../assets/edit-icon.ico"/></button>
-      </h2> 
-      
-      <p class="tile-status">{{ todoTile().isComplete }}</p>
-      <p class="tile-effort">{{ todoTile().effort }}</p>
-      <p class="tile-description">{{ todoTile().description }}</p>
-    </section>
-  `,
+  templateUrl: './todo-item-tile.html',
   styleUrls: ['./todo-item-tile.css']
 })
 export class ToDoTile {
- todoTile = input.required<ToDoItem>();
-todoService: TodoService = inject(TodoService);
- constructor(public dialog: MatDialog) {}
+ @Output() onToDoListItemDeleted = new EventEmitter<number>();
+ @Output()onToDoListItemUpdated = new EventEmitter<ToDoItem>();
+  todoTile = input.required<ToDoItem>();
+  constructor(public dialog: MatDialog) {}
    
 
     // showConfirm(id:number) {
@@ -48,20 +34,28 @@ todoService: TodoService = inject(TodoService);
     //       });
     //     }
 
+      onCheckboxChange(event: any):void {     
+        this.todoTile().isComplete = event.target.checked;
+        const updatedItem: ToDoItem = { 
+            id: this.todoTile().id,
+            title: this.todoTile().title,
+            isComplete:event.target.checked,
+            effort:this.todoTile().effort,
+            description:this.todoTile().description
+          }; 
+          this.onToDoListItemUpdated.emit(updatedItem); 
+      }
+
+
+
       deleteItem(id: number) {
-          this.todoService.deleteItem(id).subscribe(() => console.log('Deleted'));
+          this.onToDoListItemDeleted.emit(id); 
         }
 
-      // loadItems(): void {
-      //   this.todoService.getItems().subscribe({
-      //     next: (data) => {
-      //       this.todoItemsList = data;
-      //       this.filteredList = data;
-      //     },
-      //     error: (err) => console.error('Error loading items:', err)
-      //   });
-      // }
 
+      notifyParent(updatedItem:ToDoItem){
+         this.onToDoListItemUpdated.emit(updatedItem); 
+      }
 
       openModal(): void {
         const dialogRef = this.dialog.open(ToDoModal, {
@@ -71,11 +65,12 @@ todoService: TodoService = inject(TodoService);
         });
 
 
-     
 
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed', result);
-        
-        });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {  
+            this.notifyParent(result);       
       }
+    });
+  }
+      
 }

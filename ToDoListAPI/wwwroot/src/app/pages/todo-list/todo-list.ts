@@ -11,24 +11,7 @@ import { ToDoModal } from '../todo-modal/todo-modal';
 @Component({
   selector: 'app-todolist',
   imports: [ToDoTile,ReactiveFormsModule],
-  template: `
-     <section class="list-wrap">
-      <form class="list-filter-wrap">
-         <input   type="text" placeholder="Filter by Title" class="task-search-input" [formControl]="filterControl" /> 
-        <button class="task-search" type="button" (click)="filterResults()">Search</button>
-        <button class="task-clear" type="button" (click)="clearResults()">Clear</button>
-      </form>
-      <button type="button" (click)="openModal()" class="task-add" title="Add"><img src="../assets/add.png"/><span> Add New Task</span></button>
-    </section>
-
-    <section class="results">
-       @for(oneItem of filteredList; track $index) {
-        <app-todo-tile [todoTile]="oneItem" (toDoListCalled)="loadItems()"/>
-      }
-    </section>
-   
-    
-  `,
+  templateUrl:'./todo-list.html',
   styleUrls: ['./todo-list.css'],
 })
 
@@ -44,6 +27,35 @@ export class ToDoList implements OnInit  {
     ngOnInit(): void {
     this.loadItems();
     }
+
+    onToDoListItemUpdated(receivedData: any):void
+    {
+       this.todoService.updateItem(receivedData).subscribe({
+          next: () => {this.loadItems()},
+          error: (err) => {console.error('Error updating item:', err);}
+        });
+
+    }
+
+    onToDoListItemUCreated(receivedData: any):void
+    {
+       this.todoService.createItem(receivedData).subscribe({
+          next: () => {this.loadItems()},
+          error: (err) => {console.error('Error updating item:', err);}
+        });
+
+    }
+
+    onToDoListItemDeleted(deletedId: any):void
+    {
+       this.todoService.deleteItem(deletedId).subscribe({
+          next: () => {this.loadItems()},
+          error: (err) => {console.error('Error deleting item:', err);}
+        });
+        
+    }
+
+             
 
 
 loadItems(): void {
@@ -62,7 +74,7 @@ loadItems(): void {
       this.filteredList = this.todoItemsList;
       return;
     }
-    this.filteredList = this.todoItemsList.filter((todoItem) => todoItem?.title.toLowerCase().includes(text.toLowerCase()),
+    this.filteredList = this.todoItemsList.filter((todoItem) => todoItem?.title.toLowerCase().includes(this.filterControl.value!),
     );
   }
 
@@ -80,13 +92,26 @@ loadItems(): void {
       data: { name: 'Add New Item',id:0,effort:0,description:'',isComplete:false } 
     })
   
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-    
+      if (result) {
+        if(result.id==0){
+            this.onToDoListItemUCreated(result);
+        }
+        else
+        {
+            this.onToDoListItemUpdated(result);
+        }
+       
+      }
     });
+
   }
-  
 }
+  
+  
+  
+
 
 
 
