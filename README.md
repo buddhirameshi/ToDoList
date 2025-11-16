@@ -33,9 +33,6 @@ cd..
 # Restore NuGet packages
 dotnet restore
 
-# Build the solution
-dotnet build
-
 # Run the API (starts on HTTPS)
 dotnet run
 ```
