@@ -5,7 +5,7 @@ Ensure you have the following installed on your development machine:
 
 ### Required
 - **[.NET 9+ SDK](https://dotnet.microsoft.com/download/dotnet/9.0)** (Latest version)
-- **[Node.js](https://nodejs.org/)** (v18.x or later)
+- **[Node.js](https://nodejs.org/)** (v20.1.9.0 or later)
 - **[Angular CLI](https://angular.io/cli)**: `npm install -g @angular/cli`
 
 ### 1.  Clone the Repository
