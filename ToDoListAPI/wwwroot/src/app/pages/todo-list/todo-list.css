@@ -11,7 +11,7 @@
 
 .task-clear
 {
-    background-color: chocolate;
+    background-color: #6c757d;
     margin: 20px 10px;
     color: white;
     padding: 5px;
@@ -50,14 +50,14 @@ button.task-add {
     margin-top: 20px;
     height: 30px;
     width: 110px;
-    background-color: black;
+    background-color: #198754;
     color: white;
     border:none;
     border-radius: 5px;
 }
 
 button.task-add span{
-    vertical-align: super;
+    /* vertical-align: super; */
     margin-left:5px
 }
 

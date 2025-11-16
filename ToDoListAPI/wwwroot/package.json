@@ -5,7 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -26,9 +29,11 @@
     "@angular/build": "^20.2.0-next",
     "@angular/cli": "^20.2.0-next",
     "@angular/compiler-cli": "^20.2.0-next",
+    "@cypress/schematic": "^4.1.4",
     "@types/bootbox": "^5.2.9",
     "@types/node": "^16.11.35",
     "ts-node": "~10.9.0",
-    "typescript": "~5.8.0"
+    "typescript": "~5.8.0",
+    "cypress": "15.6.0"
   }
 }

@@ -5,6 +5,7 @@ display: block;
     border: solid 0.5px #ddd;
     padding: 15px;
     background-color: #fbf7c6;
+    box-shadow:  1px 2px 2px #ccc;
     /* vertical-align: text-top; */
 }
 

@@ -1,6 +1,5 @@
 import { Component,input,inject ,Output, EventEmitter} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import * as bootbox from 'bootbox';
 import { ToDoModal } from '../todo-modal/todo-modal'; 
 import {ToDoItem} from '../todo-item/todo-item';
 
@@ -18,22 +17,6 @@ export class ToDoTile {
   constructor(public dialog: MatDialog) {}
    
 
-    // showConfirm(id:number) {
-    //       bootbox.confirm({
-    //         message: "Are you sure you want to delete this item?",
-    //         callback: function (result) {
-    //           if (result) {
-    //             // User clicked 'OK'
-               
-    //             // Perform deletion logic here
-    //           } else {
-    //             // User clicked 'Cancel'
-    //             console.log("Deletion cancelled.");
-    //           }
-    //         }
-    //       });
-    //     }
-
       onCheckboxChange(event: any):void {     
         this.todoTile().isComplete = event.target.checked;
         const updatedItem: ToDoItem = { 
@@ -49,7 +32,13 @@ export class ToDoTile {
 
 
       deleteItem(id: number) {
+        if (confirm('Are you sure you want to delete this item?')) {
           this.onToDoListItemDeleted.emit(id); 
+        } 
+        else {
+          alert('Deletion cancelled.');
+        }
+
         }
 
 

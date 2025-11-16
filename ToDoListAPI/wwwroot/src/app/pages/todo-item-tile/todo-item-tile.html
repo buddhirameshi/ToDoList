@@ -10,14 +10,11 @@
         </section>
       </h2> 
       <article class="to-do-content">
-        <!-- <p class="tile-status">{{ todoTile().isComplete }}</p>
-        <p class="tile-effort">{{ todoTile().effort }}</p>
-        <p class="tile-description">{{ todoTile().description }}</p> -->
 
-        <ul class="to-do-list">
-          <li class="tile-description">{{ todoTile().description }}</li>
-          <li><span class="list-item-label">Effort: </span><span class="list-item-value">{{ todoTile().effort }} Mins</span> </li>
-          <li><span class="list-item-label">Status: </span><span class="list-item-value">{{ todoTile().isComplete?'Complete':'Not Complete' }}</span></li>
+        <ul class="to-do-list list-group">
+          <li class="tile-description list-group-item">{{ todoTile().description }}</li>
+          <li class="list-group-item"><span class="list-item-label">Effort: </span><span class="list-item-value">{{ todoTile().effort }} Mins</span> </li>
+          <li class="list-group-item"><span class="list-item-label">Status: </span><span class="list-item-value">{{ todoTile().isComplete?'Complete':'Not Complete' }}</span></li>
         </ul>
       </article>
     </section>

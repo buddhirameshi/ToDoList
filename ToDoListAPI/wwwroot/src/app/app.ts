@@ -4,7 +4,7 @@ import {ToDoList} from '../app/pages/todo-list/todo-list';
 
 @Component({
   selector: 'app-root',
-  imports: [ToDoList, RouterOutlet, RouterLink],
+  imports: [ RouterOutlet, RouterLink],
   template: `
    <main>
       <a [routerLink]="['/']">
