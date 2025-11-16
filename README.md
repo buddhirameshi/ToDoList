@@ -42,8 +42,8 @@ dotnet run
 ### 4. Access the Application
 
 - **Web Application:** http://localhost:5220
-- **API Documentation (Swagger):** https://localhost:5220/swagger
-- **API Base URL:** https://localhost:5220/api
+- **API Documentation (Swagger):** http://localhost:5220/swagger
+- **API Base URL:**  http://localhost:5220/swagger/api/todolist
 
 
 ## 📄 License
