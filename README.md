@@ -12,7 +12,7 @@ Ensure you have the following installed on your development machine:
 Open "Windows PowerShell" or "Git Bash" and execute following commands on the shell.
 ```bash
 git clone https://github.com/buddhirameshi/ToDoList.git
-cd ToDoList
+
 ```
 ### 2. Frontend Setup (Angular)
 
