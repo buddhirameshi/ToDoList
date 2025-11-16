@@ -28,7 +28,7 @@ npm install
 ### 3. Backend Setup (.NET API)
 ```bash
 # Navigate back to the API project directory from wwwroot directory. The project path is "/ToDoListAPI"
-cd ..
+cd..
 
 # Restore NuGet packages
 dotnet restore
