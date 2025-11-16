@@ -9,7 +9,7 @@ Ensure you have the following installed on your development machine:
 - **[Angular CLI](https://angular.io/cli)**: `npm install -g @angular/cli`
 
 ### 1.  Clone the Repository
-Open *Windows PowerShell" or "Git Bash".
+Open "Windows PowerShell" or "Git Bash".
 ```bash
 git clone https://github.com/buddhirameshi/ToDoList.git
 cd ToDoList
