@@ -23,6 +23,9 @@ cd ToDoListAPI/wwwroot
 # Install Node.js dependencies
 npm install
 
+#Build the angular app
+npm run build
+
 ```
 
 ### 3. Backend Setup (.NET API)
