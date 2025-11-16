@@ -8,7 +8,7 @@ Ensure you have the following installed on your development machine:
 - **[Node.js](https://nodejs.org/)** (v20.1.9.0 or later)
 - **[Angular CLI](https://angular.io/cli)**: `npm install -g @angular/cli`
 
-### 1.  Clone the Repository(optional) or download the project zip package
+### 1.  Clone the Repository
 Open "Windows PowerShell" or "Git Bash" and execute following commands on the shell.
 ```bash
 git clone https://github.com/buddhirameshi/ToDoList.git
