@@ -4,25 +4,18 @@
 Ensure you have the following installed on your development machine:
 
 ### Required
-- **[.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)** (Latest version)
+- **[.NET 9+ SDK](https://dotnet.microsoft.com/download/dotnet/9.0)** (Latest version)
 - **[Node.js](https://nodejs.org/)** (v18.x or later)
 - **[Angular CLI](https://angular.io/cli)**: `npm install -g @angular/cli`
 
-### Recommended
-- **[Visual Studio 2022](https://visualstudio.microsoft.com/)** (Community/Professional/Enterprise)
-- **[VS Code](https://code.visualstudio.com/)** with C# extension
-- **[Git](https://git-scm.com/)**
-
-
-### 1. Clone the Repository
-
+### 1.  Clone the Repository
+Open *Windows PowerShell" or "Git Bash".
 ```bash
 git clone https://github.com/buddhirameshi/ToDoList.git
 cd ToDoList
 ```
 ### 2. Frontend Setup (Angular)
 
-Open a **new terminal window/tab** and run:
 ```bash
 # Navigate to the Angular app directory
 cd ToDoListAPI/wwwroot
@@ -47,7 +40,7 @@ dotnet build
 dotnet run
 ```
 
-**Backend will be available at:** `https://localhost:5220` or `http://localhost:5000`
+**Backend will be available at:** `https://localhost:5220` 
 
 ### 4. Access the Application
 
@@ -70,4 +63,4 @@ If you encounter any issues or have questions:
 
 ---
 
-*Built with ❤️ using .NET 9 and Angular*
+*Built with ❤️ using .NET 9 and Angular 20
