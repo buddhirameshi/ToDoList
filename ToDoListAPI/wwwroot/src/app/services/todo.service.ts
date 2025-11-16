@@ -12,7 +12,7 @@ import { ToDoItem } from '../pages/todo-item/todo-item';
 
 export class TodoService {
 
-  private apiUrl = 'https://localhost:7219/api/todolist';
+  private apiUrl = '/api/todolist';
 
    constructor(private http: HttpClient) {}
 

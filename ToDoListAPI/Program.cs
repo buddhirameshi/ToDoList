@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using System;
 using ToDoList.Api.Middleware;
 using ToDoList.DataAccess;
@@ -59,19 +60,25 @@ if (app.Environment.IsDevelopment())
 }
 app.UseDefaultFiles();
 app.UseStaticFiles();
-app.UseHttpsRedirection();
+
+
+
+
 app.UseRewriter(new RewriteOptions().Add(context =>
 {
 
     const string AngularBase = "/";
     if (context.HttpContext.Request.Path == AngularBase)
     {
-        context.HttpContext.Response.Redirect("/dist/todoapp/browser/index.html", false);
+        context.HttpContext.Response.Redirect("/dist/browser/index.html", false);
         context.Result = RuleResult.EndResponse;
     }
 
 })
 );
+app.UseHttpsRedirection();
+
+
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

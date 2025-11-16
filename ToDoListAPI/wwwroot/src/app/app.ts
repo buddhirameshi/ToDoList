@@ -7,7 +7,7 @@ import {ToDoList} from '../app/pages/todo-list/todo-list';
   imports: [ RouterOutlet, RouterLink],
   template: `
    <main>
-      <a [routerLink]="['/']">
+      <a [routerLink]="['./']">
         <header class="brand-name">
           <img class="brand-logo" src="./assets/logo.png" alt="logo" aria-hidden="true" /> <span class="brand-name-text">Let's Do This!</span>
         </header>

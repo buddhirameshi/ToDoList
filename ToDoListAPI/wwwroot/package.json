@@ -29,11 +29,12 @@
     "@angular/build": "^20.2.0-next",
     "@angular/cli": "^20.2.0-next",
     "@angular/compiler-cli": "^20.2.0-next",
+    "@briebug/jest-schematic": "^6.0.0",
     "@cypress/schematic": "^4.1.4",
     "@types/bootbox": "^5.2.9",
     "@types/node": "^16.11.35",
+    "cypress": "15.6.0",
     "ts-node": "~10.9.0",
-    "typescript": "~5.8.0",
-    "cypress": "15.6.0"
+    "typescript": "~5.8.0"
   }
 }
