@@ -18,7 +18,7 @@ git clone https://github.com/buddhirameshi/ToDoList.git
 
 ```bash
 # Navigate to the Angular app directory
-cd ToDoListAPI/wwwroot
+cd ToDoList/TodoListAPI/wwwroot
 
 # Install Node.js dependencies
 npm install
