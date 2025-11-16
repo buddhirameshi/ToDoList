@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "first-app": {
+    "todoapp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -41,7 +41,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/first-app",
+            "outputPath": "dist/todoapp",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -86,10 +86,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "first-app:build:production"
+              "buildTarget": "todoapp:build:production"
             },
             "development": {
-              "buildTarget": "first-app:build:development"
+              "buildTarget": "todoapp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,17 +97,17 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "buildTarget": "first-app:build"
+            "buildTarget": "todoapp:build"
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "first-app:serve"
+            "devServerTarget": "todoapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "first-app:serve:production"
+              "devServerTarget": "todoapp:serve:production"
             }
           }
         },
@@ -121,27 +121,27 @@
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "first-app:serve",
+            "devServerTarget": "todoapp:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "first-app:serve:development"
+              "devServerTarget": "todoapp:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "first-app:serve",
+            "devServerTarget": "todoapp:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "first-app:serve:production"
+              "devServerTarget": "todoapp:serve:production"
             }
           }
         }

@@ -17,7 +17,7 @@
             </section>
             <section class="modal-form-group">
                 <label for="effort">Effort</label>
-                <input id="effort" type="number" formControlName="effort"  [value]="toDoModal.effort" />
+                <input id="effort" type="number" formControlName="effort"  [value]="toDoModal.effort" min="0" max="2080"/>
             </section>
             <section class="modal-form-group">
                 <label for="isComplete">Is Complete?</label>

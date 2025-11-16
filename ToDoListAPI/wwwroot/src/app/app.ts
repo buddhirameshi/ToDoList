@@ -9,7 +9,7 @@ import {ToDoList} from '../app/pages/todo-list/todo-list';
    <main>
       <a [routerLink]="['/']">
         <header class="brand-name">
-          <img class="brand-logo" src="/assets/logo.png" alt="logo" aria-hidden="true" /> <span class="brand-name-text">Let's Do This!</span>
+          <img class="brand-logo" src="./assets/logo.png" alt="logo" aria-hidden="true" /> <span class="brand-name-text">Let's Do This!</span>
         </header>
       </a>
       <section class="content">
